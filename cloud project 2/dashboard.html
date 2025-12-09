@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dainah Tracking - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="nav">
+        <h2 class="logo">Dainah Tracking</h2>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="tracking.html">Tracking</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Dashboard</h2>
+        <p class="subtitle">Overview of your usage.</p>
+
+        <div class="card">
+            <p><strong>Total Messages:</strong> <span id="chatCount">0</span></p>
+            <p><strong>Total Tracking Searches:</strong> <span id="trackCount">0</span></p>
+        </div>
+
+        <div class="card">
+            <h3>Recent Tracking Activity</h3>
+            <ul id="trackList"></ul>
+        </div>
+    </div>
+
+<script>
+    let trackHistory = JSON.parse(localStorage.getItem("trackHistory") || "[]");
+    let chatCount = localStorage.getItem("chatCount") || "0";
+
+    document.getElementById("chatCount").innerText = chatCount;
+    document.getElementById("trackCount").innerText = trackHistory.length;
+
+    let list = document.getElementById("trackList");
+
+    if (trackHistory.length === 0) {
+        list.innerHTML = "<li>No tracking history found.</li>";
+    } else {
+        trackHistory.slice(-5).reverse().forEach(item => {
+            let li = document.createElement("li");
+            li.innerText = `${item.number} — ${item.status}`;
+            list.appendChild(li);
+        });
+    }
+</script>
+
+</body>
+</html>

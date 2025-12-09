@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dainah Tracking - Tracking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="nav">
+        <h2 class="logo">Dainah Tracking</h2>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="tracking.html">Tracking</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Track Your Package</h2>
+        <p class="subtitle">Enter your tracking number below.</p>
+
+        <div class="card">
+            <input id="trackInput" type="text" placeholder="Enter Tracking Number">
+            <button onclick="trackPackage()">Track</button>
+
+            <pre id="trackResult" class="result"></pre>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
